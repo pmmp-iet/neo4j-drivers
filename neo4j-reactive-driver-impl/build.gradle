@@ -1,0 +1,5 @@
+dependencies {
+  compile project(':neo4j-reactive-driver-interfaces')
+  compile project(':neo4j-driver-util')
+  testCompile project(':neo4j-embedded-testkit-driver')
+}
