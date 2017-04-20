@@ -1,3 +1,20 @@
+
+group = 'neo4j-reactive-driver'
+version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+jar { from sourceSets.main.allJava }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	//mavenLocal()
+	jcenter()
+
 buildscript {
   repositories {
     maven {
@@ -14,6 +31,14 @@ apply plugin: "org.sonarqube"
 allprojects {
   group = 'neo4j-drivers'
   version = '0.0.4-SNAPSHOT'
+}
+
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			repository(url: 'file:///tmp/mvn_repo')
+		}
+	}
 }
 
 ext {
